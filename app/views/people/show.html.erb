@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @person.name %></h1>
+<p>born <%= @person.dob.to_s(:pretty) %></p>
+<h2>Spouse</h2>
+<p>
+  <% @person.spouses.each do |spouse| %>
+    <%= link_to spouse.name, spouse %>
+  <% end %>
+</p>
+
+<h2>Parents</h2>
+<p>
+  <% @person.parents.each do |parent| %>
+    <%= link_to parent.name, parent %>
+  <% end %>
+</p>
+
+
+<h2>Children</h2>
+<p>
+  <% @person.children.each do |child| %>
+    <%= link_to child.name, child %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
+
+

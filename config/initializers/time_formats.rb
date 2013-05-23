@@ -1,0 +1,16 @@
+Date::DATE_FORMATS[:simple] = "%m/%d/%Y"
+Date::DATE_FORMATS[:month_day] = "%b %d"
+Date::DATE_FORMATS[:pretty] = "%B %e, %Y"
+Date::DATE_FORMATS[:day_of_week] = "%a"
+Date::DATE_FORMATS[:day_of_week_full] = "%A"
+Date::DATE_FORMATS[:datepicker] = "%m/%d/%Y"
+  
+Time::DATE_FORMATS[:simple] = "%m/%d/%Y"
+Time::DATE_FORMATS[:month_day] = "%b %d"
+Time::DATE_FORMATS[:pretty] = "%B %e, %Y"
+Time::DATE_FORMATS[:day_of_week] = "%a"
+Time::DATE_FORMATS[:day_of_week_full] = "%A"
+Time::DATE_FORMATS[:datepicker] = "%m/%d/%Y"
+  
+Time::DATE_FORMATS[:pm] = "%l:%M%p"
+Time::DATE_FORMATS[:timepicker] = "%I:%M %p"
