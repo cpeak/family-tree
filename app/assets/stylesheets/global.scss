@@ -11,6 +11,16 @@ body {
 }
 
 
+a, a:visited {
+  color: #990000;
+  text-decoration: none;
+  transition: all 0.15s ease-in;
+  &:hover {
+    color: #000;
+  }
+}
+
+
 table {
   border-collapse: collapse;
   width: 100%;

@@ -1,8 +1,8 @@
 class Person < ActiveRecord::Base
-  attr_accessible :name, :date_of_birth
+  attr_accessible :first_name, :middle_name, :last_name 
 
   validates :name, :presence => true
-  validates :date_of_birth, allow_nil: true, format: {
+  validates :dob, allow_nil: true, format: {
     with: /\A\d{4}(-\d{1,2}(-\d{1,2})?)?\z/
   }
 
@@ -18,7 +18,13 @@ class Person < ActiveRecord::Base
   end
 
   def born 
-    dob.to_s(:pretty) if present? rescue ''
+    @born_pretty = ''
+    @born_pretty += dob.to_s(:pretty) if present? rescue ''
+    if birthplace.present?
+      @born_pretty += " in #{birthplace}"
+    else
+      @born_pretty
+    end
   end
 
   def died
@@ -49,7 +55,7 @@ class Person < ActiveRecord::Base
   def parents
     parents = []
     self.all_relationships.each do |filter|
-      if filter.related_person_id == self.id && filter.relationship_type_id == 1
+      if filter.relationship_type_id == 1 && filter.related_person_id == self.id
         parents << (Person.find filter.person_id)
       end
     end
@@ -59,7 +65,7 @@ class Person < ActiveRecord::Base
   def children
     children = []
     self.all_relationships.each do |filter|
-      if filter.person_id == self.id && filter.relationship_type_id == 1
+      if filter.relationship_type_id == 1 && filter.related_person_id != self.id
         children << (Person.find filter.related_person_id)
       end
     end

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @person.name %></h1>
-<p>born <%= @person.dob.to_s(:pretty) %></p>
+<p>Born <%= @person.born %></p>
 <h2>Spouse</h2>
 <p>
   <% @person.spouses.each do |spouse| %>
