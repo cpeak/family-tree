@@ -2,44 +2,62 @@
 <section class='twelve columns breadcrumb'>
   <%= link_to 'Back', people_path %>
 </section>
+
 <section class='six columns main-bio'>
-<article>
-<h1><%= @person.name %><span><%= link_to '(Edit)', edit_person_path(@person) %></span></h1>
-  <p><%= @person.birth %></p>
-  <p>Married 
-  <% @person.spouses.each do |spouse| %>
-    <%= link_to spouse.name, spouse %>
-  <% end %>
-  </p>
-  <p><%= @person.death %></p>
+  <article class='detail-card'>
+  <h1><%= @person.name %><%= link_to '(Edit)', edit_person_path(@person), :class => 'edit-person' %></h1>
+    <p><%= @person.birth %></p>
+    <p><% @person.spouses.each do |spouse| %>
+      Married to <%= link_to spouse.name, spouse %>
+      <% end %>
+    </p>
+    <p><%= @person.death %></p>
   </article>
+
+  <article class='detail-card'>
+    <h3>Photos</h3>
+    <p class='add-photo'><a href='#'>+ Add a Photo</a></p>
+  </article>
+
+  <article class='detail-card'>
+    <h3>Notes</h3>
+    <p class='add-note'><a href='#'>+ Add a Note</a></p>
+  </article>
+
 </section>
 
 
 <section class='six columns'>
-  <article>
+  <article class='detail-card'>
   <h3>Parents</h3>
   <p>
     <% @person.parents.each do |parent| %>
-      <%= link_to parent.name, parent %>
+      <%= link_to(parent) do %>
+        <span><%= parent.name %></span>
+      <% end %>
     <% end %>
   </p>
+  <p class='add-relation'><a href='#'>+ Add a Parent</a></p>
   </article>
-  <article>
+  <article class='detail-card'>
   <h3>Siblings</h3>
   <p>
     <% @person.siblings.each do |sibling| %>
-      <%= link_to sibling.name, sibling %>
-    <% end %>
-  </p>
+      <%= link_to(sibling) do %>
+        <span><%= sibling.name %></span>
+      <% end %>
+    <% end %></p>
+    <p class='add-relation'><a href="#">+ Add a Sibling</a></p>
   </article>
-  <article>
+  <article class='detail-card'>
   <h3>Children</h3>
   <p>
     <% @person.children.each do |child| %>
-      <%= link_to child.name, child %>
-    <% end %>
-  </p>
+      <%= link_to(child) do %>
+        <span><%= child.name %></span>
+      <% end %>
+    <% end %></p>
+    <p class='add-relation'><a href="#">+ Add a Child</a></p>
   </article>
 </section>
 

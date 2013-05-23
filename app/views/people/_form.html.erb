@@ -12,14 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "First Name" %>
-    <%= f.text_field :first_name, :placeholder => 'John' %>
-    <%= f.label "Middle Name" %>
-    <%= f.text_field :middle_name, :placeholder => 'Q' %>
-    <%= f.label "Last Name" %>
-    <%= f.text_field :last_name, :placeholder => 'Nixon' %>
+    <section class='six columns'>
+      <%= f.label "First Name" %>
+      <%= f.text_field :first_name, :placeholder => 'John' %>
+      <%= f.label "Middle Name" %>
+      <%= f.text_field :middle_name, :placeholder => 'Q' %>
+      <%= f.label "Last Name" %>
+      <%= f.text_field :last_name, :placeholder => 'Nixon' %>
+    </section>
+    <section class='six columns'>
+      <%= f.label "Born" %>
+      <%= f.date_select :dob %>
+      <br />
+      <%= f.label "Died" %>
+      <%= f.date_select :dod %>
+    </section>
   </div>
-  <div class="actions">
+  <section class="twelve columns actions">
     <%= f.submit %>
-  </div>
+    <%= link_to 'Cancel', @person %>
+  </section>
 <% end %>

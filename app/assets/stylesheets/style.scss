@@ -2,7 +2,6 @@
   padding: 0 0 10px 10px;
 }
 
-
 footer {
   font-size: .8em;
   text-align: center;
@@ -19,21 +18,3 @@ input[type='text'] {
   padding: 5px;
 } 
 
-
-
-
-section {
-  article {
-    background: #fff;
-    border: 1px solid #f2f2f2; 
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-  h1 span { 
-    font-size: .6em; 
-    a { 
-      color: #888; 
-      &:hover { color: #000; }
-    }
-  }
-}
