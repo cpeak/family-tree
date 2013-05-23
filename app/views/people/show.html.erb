@@ -37,7 +37,7 @@
       <% end %>
     <% end %>
   </p>
-  <p class='add-relation'><a href='#'>+ Add a Parent</a></p>
+  <p class='add-relation'><a href="<%= new_person_path %>">+ Add a Parent</a></p>
   </article>
   <article class='detail-card'>
   <h3>Siblings</h3>
@@ -47,7 +47,7 @@
         <span><%= sibling.name %></span>
       <% end %>
     <% end %></p>
-    <p class='add-relation'><a href="#">+ Add a Sibling</a></p>
+    <p class='add-relation'><a href="<%= new_person_path %>">+ Add a Sibling</a></p>
   </article>
   <article class='detail-card'>
   <h3>Children</h3>
@@ -57,7 +57,7 @@
         <span><%= child.name %></span>
       <% end %>
     <% end %></p>
-    <p class='add-relation'><a href="#">+ Add a Child</a></p>
+    <p class='add-relation'><a href="<%= new_person_path %>">+ Add a Child</a></p>
   </article>
 </section>
 

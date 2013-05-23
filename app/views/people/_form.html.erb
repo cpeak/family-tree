@@ -22,7 +22,7 @@
     </section>
     <section class='six columns'>
       <%= f.label "Born" %>
-      <%= f.date_select :dob %>
+      <%= f.date_select :dob, :start_year => Time.now.year - 400, :end_year => Time.now.year %>
       <br />
       <%= f.label "Died" %>
       <%= f.date_select :dod %>
