@@ -18,7 +18,11 @@ class Person < ActiveRecord::Base
   end
 
   def born 
-    @born_pretty = ''
+    dob.to_s(:pretty) if present? rescue ''
+  end
+
+  def birth 
+    @born_pretty = 'Born '
     @born_pretty += dob.to_s(:pretty) if present? rescue ''
     if birthplace.present?
       @born_pretty += " in #{birthplace}"
@@ -36,6 +40,16 @@ class Person < ActiveRecord::Base
       ((dod.year*12+dod.month) - (dob.year*12+dob.month))/12
     else 
       ''
+    end
+  end
+
+  def death
+    @death = ''
+    @death += "Died #{died}" if died.present?
+    if age.present? 
+      @death += " at age #{age}"
+    else
+      @death = @death
     end
   end
 
@@ -60,6 +74,18 @@ class Person < ActiveRecord::Base
       end
     end
     return parents
+  end
+
+  def siblings
+    siblings = []
+    self.all_relationships.each do |filter|
+      if filter.relationship_type_id == 3 && filter.related_person_id == self.id
+        siblings << (Person.find filter.person_id)
+      elsif filter.relationship_type_id == 3 && filter.person_id == self.id
+        siblings << (Person.find filter.related_person_id)
+      end
+    end
+    return siblings
   end
 
   def children

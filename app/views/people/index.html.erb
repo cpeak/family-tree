@@ -1,23 +1,29 @@
-<h1>Listing people</h1>
+<section class='twelve columns'>
+  <article>
+  <h1>Listing people</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Born</th>
-    <th>Died</th>
-    <th>Age</th>
-  </tr>
 
-<% @people.each do |person| %>
-  <tr>
-    <td><%= link_to person.name, person %></td>
-    <td><%= person.born %></td>
-    <td><%= person.died %></td>
-    <td><%= person.age %></td>
-  </tr>
-<% end %>
-</table>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Born</th>
+      <th>From</th>
+      <th>Died</th>
+      <th>Age</th>
+    </tr>
 
-<br />
-
-<%= link_to 'New Person', new_person_path %>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= link_to person.name, person %></td>
+        <td><%= person.born %></td>
+        <td><%= person.birthplace %></td>
+        <td><%= person.died %></td>
+        <td><%= person.age %></td>
+      </tr>
+    <% end %>
+  </table>
+  </article>
+</section>
+<section class='two columns offset-by-one'>
+  <%= link_to 'New Person', new_person_path %>
+</section>

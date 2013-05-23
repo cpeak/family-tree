@@ -1,30 +1,45 @@
 <p id="notice"><%= notice %></p>
-
-<h1><%= @person.name %></h1>
-<p>Born <%= @person.born %></p>
-<h2>Spouse</h2>
-<p>
+<section class='twelve columns breadcrumb'>
+  <%= link_to 'Back', people_path %>
+</section>
+<section class='six columns main-bio'>
+<article>
+<h1><%= @person.name %><span><%= link_to '(Edit)', edit_person_path(@person) %></span></h1>
+  <p><%= @person.birth %></p>
+  <p>Married 
   <% @person.spouses.each do |spouse| %>
     <%= link_to spouse.name, spouse %>
   <% end %>
-</p>
-
-<h2>Parents</h2>
-<p>
-  <% @person.parents.each do |parent| %>
-    <%= link_to parent.name, parent %>
-  <% end %>
-</p>
+  </p>
+  <p><%= @person.death %></p>
+  </article>
+</section>
 
 
-<h2>Children</h2>
-<p>
-  <% @person.children.each do |child| %>
-    <%= link_to child.name, child %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
-
+<section class='six columns'>
+  <article>
+  <h3>Parents</h3>
+  <p>
+    <% @person.parents.each do |parent| %>
+      <%= link_to parent.name, parent %>
+    <% end %>
+  </p>
+  </article>
+  <article>
+  <h3>Siblings</h3>
+  <p>
+    <% @person.siblings.each do |sibling| %>
+      <%= link_to sibling.name, sibling %>
+    <% end %>
+  </p>
+  </article>
+  <article>
+  <h3>Children</h3>
+  <p>
+    <% @person.children.each do |child| %>
+      <%= link_to child.name, child %>
+    <% end %>
+  </p>
+  </article>
+</section>
 
