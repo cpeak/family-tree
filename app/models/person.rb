@@ -6,6 +6,7 @@ class Person < ActiveRecord::Base
     with: /\A\d{4}(-\d{1,2}(-\d{1,2})?)?\z/
   }
 
+  has_many :notes
   has_many :relationships, :dependent => :destroy
   has_many :reverse_relationships, :dependent => :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
 

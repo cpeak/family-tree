@@ -1,4 +1,7 @@
 Family::Application.routes.draw do
+  resources :notes
+
+
   resources :marriages
 
 

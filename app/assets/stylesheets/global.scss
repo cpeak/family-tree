@@ -19,6 +19,7 @@ h1, h2, h3, h4, h5 {
   margin: 0;
   padding: 0;
 }
+
 a, a:visited {
   color: #990000;
   text-decoration: none;
@@ -27,6 +28,14 @@ a, a:visited {
     color: #000;
   }
 }
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
 
 
 table {
