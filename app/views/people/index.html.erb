@@ -14,11 +14,11 @@
 
     <% @people.each do |person| %>
       <tr>
-        <td><%= link_to person.name, person %></td>
-        <td><%= person.born %></td>
+        <td><%= link_to person.fullName, person %></td>
+        <td><%= person.dateBorn %></td>
         <td><%= person.birthplace %></td>
-        <td><%= person.died %></td>
-        <td><%= person.age %></td>
+        <td><%= person.dateDied%></td>
+        <td><%= person.ageDied %></td>
       </tr>
     <% end %>
   </table>

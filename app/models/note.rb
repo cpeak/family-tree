@@ -4,8 +4,8 @@ class Note < ActiveRecord::Base
 
 
 
-  def name 
-    (Person.find person_id).name
+  def fullName 
+    (Person.find person_id).fullName
   end
 
 end

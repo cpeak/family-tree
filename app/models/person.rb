@@ -14,31 +14,31 @@ class Person < ActiveRecord::Base
     relationships | reverse_relationships
   end
 
-  def name 
+  def fullName 
     [first_name, middle_name, last_name].compact.join(' ')
   end
 
-  def born 
+  def dateBorn 
     dob.to_s(:pretty) if present? rescue ''
   end
 
-  def birthplace_pretty
+  def inBirthplace 
     [" in ", birthplace].join if birthplace.present?
   end
 
-  def birth 
-    ['Born', born, birthplace_pretty].compact.join(' ')
+  def bornOnWithLocation 
+    ['Born', dateBorn, inBirthplace].compact.join(' ')
   end
 
-  def died
+  def dateDied
     dod.to_s(:pretty) if present? rescue ''
   end
 
   def death
-    ["Died", died, age_pretty].join(' ') if died.present?
+    ["Died", dateDied, ageDiedPretty ].join(' ') if dateDied.present?
   end
 
-  def age
+  def ageDied
     if dob.present? and dod.present?
       ((dod.year*12+dod.month) - (dob.year*12+dob.month))/12
     else 
@@ -46,12 +46,12 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def age_pretty
-    ["at age", age] if age.present?
+  def ageDiedPretty
+    ["at age", ageDied] if ageDied.present?
   end
 
 
-  def spouses
+  def listSpouses
     spouse = []
     self.all_relationships.each do |filter|
       if filter.person_id == self.id && filter.relationship_type_id == 2 
@@ -64,7 +64,7 @@ class Person < ActiveRecord::Base
   end
 
 
-  def parents
+  def listParents
     parents = []
     self.all_relationships.each do |filter|
       if filter.relationship_type_id == 1 && filter.related_person_id == self.id
@@ -74,7 +74,7 @@ class Person < ActiveRecord::Base
     return parents
   end
 
-  def siblings
+  def listSiblings
     siblings = []
     self.all_relationships.each do |filter|
       if filter.relationship_type_id == 3 && filter.related_person_id == self.id
@@ -86,7 +86,7 @@ class Person < ActiveRecord::Base
     return siblings
   end
 
-  def children
+  def listChildren
     children = []
     self.all_relationships.each do |filter|
       if filter.relationship_type_id == 1 && filter.related_person_id != self.id
