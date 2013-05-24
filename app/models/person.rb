@@ -15,25 +15,27 @@ class Person < ActiveRecord::Base
   end
 
   def name 
-    @name = "#{first_name} #{middle_name} #{last_name} "
+    [first_name, middle_name, last_name].compact.join(' ')
   end
 
   def born 
     dob.to_s(:pretty) if present? rescue ''
   end
 
+  def birthplace_pretty
+    [" in ", birthplace].join if birthplace.present?
+  end
+
   def birth 
-    @born_pretty = 'Born '
-    @born_pretty += dob.to_s(:pretty) if present? rescue ''
-    if birthplace.present?
-      @born_pretty += " in #{birthplace}"
-    else
-      @born_pretty
-    end
+    ['Born', born, birthplace_pretty].compact.join(' ')
   end
 
   def died
     dod.to_s(:pretty) if present? rescue ''
+  end
+
+  def death
+    ["Died", died, age_pretty].join(' ') if died.present?
   end
 
   def age
@@ -44,15 +46,10 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def death
-    @death = ''
-    @death += "Died #{died}" if died.present?
-    if age.present? 
-      @death += " at age #{age}"
-    else
-      @death = @death
-    end
+  def age_pretty
+    ["at age", age] if age.present?
   end
+
 
   def spouses
     spouse = []
