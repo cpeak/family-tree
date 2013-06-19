@@ -34,7 +34,7 @@ class Person < ActiveRecord::Base
     dod.to_s(:pretty) if present? rescue ''
   end
 
-  def death
+  def diedOnAtAge 
     ["Died", dateDied, ageDiedPretty ].join(' ') if dateDied.present?
   end
 

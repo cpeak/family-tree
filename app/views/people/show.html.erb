@@ -10,7 +10,7 @@
     <p><% @person.listSpouses.each do |spouse| %>
         Married to <%= link_to spouse.fullName, spouse %>
     <% end %></p>
-    <p><%= @person.death %></p>
+    <p><%= @person.diedOnAtAge %></p>
   </article>
 
   <article class='detail-card'>
