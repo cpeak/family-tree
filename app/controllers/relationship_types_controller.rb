@@ -1,6 +1,4 @@
 class RelationshipTypesController < ApplicationController
-  # GET /relationship_types
-  # GET /relationship_types.json
   def index
     @relationship_types = RelationshipType.all
 
@@ -10,8 +8,6 @@ class RelationshipTypesController < ApplicationController
     end
   end
 
-  # GET /relationship_types/1
-  # GET /relationship_types/1.json
   def show
     @relationship_type = RelationshipType.find(params[:id])
 
@@ -21,8 +17,6 @@ class RelationshipTypesController < ApplicationController
     end
   end
 
-  # GET /relationship_types/new
-  # GET /relationship_types/new.json
   def new
     @relationship_type = RelationshipType.new
 
@@ -32,13 +26,10 @@ class RelationshipTypesController < ApplicationController
     end
   end
 
-  # GET /relationship_types/1/edit
   def edit
     @relationship_type = RelationshipType.find(params[:id])
   end
 
-  # POST /relationship_types
-  # POST /relationship_types.json
   def create
     @relationship_type = RelationshipType.new(params[:relationship_type])
 
@@ -53,8 +44,6 @@ class RelationshipTypesController < ApplicationController
     end
   end
 
-  # PUT /relationship_types/1
-  # PUT /relationship_types/1.json
   def update
     @relationship_type = RelationshipType.find(params[:id])
 
@@ -69,8 +58,6 @@ class RelationshipTypesController < ApplicationController
     end
   end
 
-  # DELETE /relationship_types/1
-  # DELETE /relationship_types/1.json
   def destroy
     @relationship_type = RelationshipType.find(params[:id])
     @relationship_type.destroy

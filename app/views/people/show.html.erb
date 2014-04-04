@@ -20,7 +20,7 @@
 
   <article class='detail-card'>
     <h3>Notes</h3>
-    <ul>
+    <ul class='notes'>
       <% @person.notes.each do |note| %>
         <li><%= truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
       <% end %>

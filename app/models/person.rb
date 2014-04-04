@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   attr_accessible :first_name, :middle_name, :last_name, :dob, :dod
 
-  validates :name, :presence => true
+
   validates :dob, allow_nil: true, format: {
     with: /\A\d{4}(-\d{1,2}(-\d{1,2})?)?\z/
   }
@@ -9,24 +9,25 @@ class Person < ActiveRecord::Base
   has_many :notes
   has_many :relationships, :dependent => :destroy
   has_many :reverse_relationships, :dependent => :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
+  accepts_nested_attributes_for :relationships
 
   def all_relationships
     relationships | reverse_relationships
   end
 
-  def fullName 
+  def fullName
     [first_name, middle_name, last_name].compact.join(' ')
   end
 
-  def dateBorn 
+  def dateBorn
     dob.to_s(:pretty) if present? rescue ''
   end
 
-  def inBirthplace 
+  def inBirthplace
     [" in ", birthplace].join if birthplace.present?
   end
 
-  def bornOnWithLocation 
+  def bornOnWithLocation
     ['Born', dateBorn, inBirthplace].compact.join(' ')
   end
 
@@ -34,14 +35,14 @@ class Person < ActiveRecord::Base
     dod.to_s(:pretty) if present? rescue ''
   end
 
-  def diedOnAtAge 
+  def diedOnAtAge
     ["Died", dateDied, ageDiedPretty ].join(' ') if dateDied.present?
   end
 
   def ageDied
     if dob.present? and dod.present?
       ((dod.year*12+dod.month) - (dob.year*12+dob.month))/12
-    else 
+    else
       ''
     end
   end
@@ -50,11 +51,20 @@ class Person < ActiveRecord::Base
     ["at age", ageDied] if ageDied.present?
   end
 
+  def relatives
+    relative = []
+    self.all_relationships.each do |filter|
+      if filter.person_id == self.id
+        relative << (Person.find filter.related_person_id)
+      end
+    end
+    return relative
+  end
 
   def listSpouses
     spouse = []
     self.all_relationships.each do |filter|
-      if filter.person_id == self.id && filter.relationship_type_id == 2 
+      if filter.person_id == self.id && filter.relationship_type_id == 2
         spouse << (Person.find filter.related_person_id)
       elsif filter.related_person_id == self.id && filter.relationship_type_id == 2
         spouse << (Person.find filter.person_id)

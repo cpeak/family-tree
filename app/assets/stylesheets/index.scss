@@ -3,4 +3,10 @@
   border-bottom: 1px solid #ddd;
   border-right: 1px solid #eee;
   padding: 20px;
+  a {
+    color: #309B5C;
+    &:hover {
+      color: black;
+    }
+  }
 }

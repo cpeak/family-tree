@@ -28,6 +28,9 @@
       <%= f.date_select :dod %>
     </section>
   </div>
+  <div>
+      <%= f.collection_select(:id, Person.all, :id, :fullName)%>
+  </div>
   <section class="twelve columns actions">
     <%= f.submit %>
     <%= link_to 'Cancel', @person %>
