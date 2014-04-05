@@ -2,7 +2,6 @@
   <% if @person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
       <ul>
       <% @person.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,31 +10,38 @@
     </div>
   <% end %>
 
+<div class='wrap'>
   <div class="field">
-    <section class='six columns'>
-      <%= f.label "First Name" %>
-      <%= f.text_field :first_name, :placeholder => 'John' %>
-      <%= f.label "Middle Name" %>
-      <%= f.text_field :middle_name, :placeholder => 'Q' %>
-      <%= f.label "Last Name" %>
-      <%= f.text_field :last_name, :placeholder => 'Nixon' %>
-      <%= f.label "Sex" %>
-      <%= f.text_field :sex, :placeholder => 'M' %>
-    </section>
-    <section class='six columns'>
-      <%= f.label "Born" %>
-      <%= f.date_select :dob, :start_year => Time.now.year - 400, :end_year => Time.now.year %>
-    </section>
+    <h2>Personal Information</h2>
+    <%= f.label "First Name" %>
+    <%= f.text_field :first_name, :placeholder => 'John' %>
+    <%= f.label "Middle Name" %>
+    <%= f.text_field :middle_name, :placeholder => 'Q' %>
+    <%= f.label "Last Name" %>
+    <%= f.text_field :last_name, :placeholder => 'Nixon' %>
+    <%= f.label "Sex" %>
+    <%= f.text_field :sex, :placeholder => 'M' %>
+    <%= f.label "Born" %>
+    <%= f.date_select :dob, :start_year => Time.now.year - 400, :end_year => Time.now.year %><br />
+    <%= f.label "Died" %>
+    <%= f.date_select :dod, :start_year => Time.now.year - 400, :end_year => Time.now.year %><br />
+    <br />
+    <%= f.file_field :photo %>
   </div>
-  <div>
-    <h3>Spouses</h3>
+  <div class='relations'>
+    <h2>Relative Information</h2>
+    <h3>Parents</h3>
+    <h3>Spouse</h3>
     <% @person.listSpouses.each do |spouse| %>
-      <%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %>
+      <p><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %></p>
     <% end %>
+    <h3>Siblings</h3>
+    <h3>Children</h3>
     <!-- <%= f.collection_select(:id, Person.all, :id, :fullName)%> -->
   </div>
-  <section class="twelve columns actions">
-    <%= f.submit %>
-    <%= link_to 'Cancel', @person %>
-  </section>
+</div>
+<div class="actions">
+  <%= f.submit %>
+  <%= link_to 'Cancel', @person, :class => "warning" %>
+</div>
 <% end %>

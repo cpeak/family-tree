@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :first_name, :middle_name, :last_name, :dob, :dod, :sex
+  attr_accessible :first_name, :middle_name, :last_name, :dob, :dod, :sex, :photo
 
 
   validates :dob, allow_nil: true, format: {
@@ -10,6 +10,8 @@ class Person < ActiveRecord::Base
   has_many :relationships, :dependent => :destroy
   has_many :reverse_relationships, :dependent => :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
   accepts_nested_attributes_for :relationships
+
+  has_attached_file :photo
 
   def all_relationships
     relationships | reverse_relationships

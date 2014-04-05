@@ -9,6 +9,7 @@ Family::Application.routes.draw do
 
 
   get "home/index"
+  get "pages/stats"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

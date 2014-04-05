@@ -34,8 +34,11 @@
   </div>
 </div>
 
-<div class='tile half'>
+<div class='tile half photos'>
   <h3>Photos</h3>
+  <% if @person.photo.present? %>
+    <%= image_tag @person.photo.url %>
+  <% end %>
   <p><a class='subtle' href='#'>+ Add a Photo</a></p>
 </div>
 

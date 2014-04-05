@@ -73,13 +73,26 @@ a.subtle {
   width: 28%;
 }
 
+/*
+  =========================================================
+  Photos Panel
+  =========================================================
+*/
+.photos {
+  h3 {
+    margin-bottom: 1em;
+  }
+  img {
+    margin: 0 auto;
+    width: 50%;
+  }
+}
 
 /*
   =========================================================
   Notes Panel
   =========================================================
 */
-
 
 .notes li {
   margin-bottom: 1em;
@@ -94,13 +107,33 @@ a.subtle {
 
 
 
+/*
+  =========================================================
+  Person#form
+  =========================================================
+*/
 
 
 .add-edit-person {
-  border: 5px solid red;
   background: #fff;
   padding: 20px;
   overflow: hidden;
+  .field {
+    float: left;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 50%;
+  }
+  .relations {
+    float: left;
+    padding: 10px 0;
+    width: 50%;
+    h3 {
+      border-bottom: 1px solid #ccc;
+      margin-top: 0.5em;
+      padding: 5px 0;
+    }
+  }
   .actions {
     margin-top: 2em;
   }

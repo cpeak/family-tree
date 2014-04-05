@@ -1,0 +1,14 @@
+<h3>Statistics</h3>
+
+<p>
+  <strong>Family Members: <%= Person.count %></strong> -
+  <%= Person.count(:conditions => 'sex = "M"') %> males,
+  <%= Person.count(:conditions => 'sex = "F"') %> females <br />
+  <strong>Unique Last Names:</strong> <%= Person.count(:last_name, :distinct => true) %>
+</p>
+
+<ul>
+  <% @person.each do |name| %>
+    <li><%= name.last_name %></li>
+  <% end %>
+</ul>

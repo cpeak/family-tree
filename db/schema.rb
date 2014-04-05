@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523184358) do
+ActiveRecord::Schema.define(:version => 20140405043629) do
 
   create_table "notes", :force => true do |t|
     t.string   "person_id"
@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(:version => 20130523184358) do
     t.string   "birthplace"
     t.date     "dob"
     t.date     "dod"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "relationship_types", :force => true do |t|
