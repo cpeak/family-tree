@@ -1,8 +1,54 @@
-.detail-card {
-  background: #fff;
+.wrap {
+  overflow: hidden;
   margin-bottom: 20px;
-  padding: 20px;
+}
 
+.tile {
+  background: white;
+  float: left;
+  padding: 20px;
+}
+
+.half {
+  margin-right: 2%;
+  width: 49%;
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+a.subtle {
+  color: #999;
+  font-size: .85em;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 1em;
+  padding: 8px;
+  &:hover { color: #000; border-color: #555; }
+}
+
+/*
+  =========================================================
+  Main Bio Panel
+  =========================================================
+*/
+
+.main-bio {
+  float: left;
+  font-size: 1.25em;
+  margin-right: 2%;
+  padding: 2em 0 !important;
+  text-align: center;
+  width: 70%;
+  .children {
+    font-size: .85em;
+    margin-top: 3em;
+  }
+  .parents {
+    font-size: .85em;
+    margin-bottom: 3em;
+  }
   h1 { font-size: 1.7em; }
   .edit-person {
     color: #999;
@@ -10,45 +56,49 @@
     &:hover { color: #000; }
   }
   span {
-    background: #f2f2f2;
-    border: 1px solid #f2f2f2;
-    border-radius: 4px;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 8px 15px;
     margin: 0 8px 8px 0;
     transition: all 0.15s ease-in;
-    &:hover {
-      border-color: #999;
-    }
-  }
-
-  .notes li {
-    margin-bottom: 1em;
-    .sub-link {
-      display: block;
-      font-weight: bold;
-      margin-left: 0.5em;
-    }
-  }
-
-  .add-relation,
-  .add-photo,
-  .add-note {
-    a {
-      color: #999;
-      font-size: .85em;
-      border: 1px dashed #ddd;
-      border-radius: 4px;
-      padding: 4px 8px;
-      &:hover { color: #000; border-color: #555; }
-    }
   }
 }
 
+/*
+  =========================================================
+  Sibling Sidebar
+  =========================================================
+*/
+.siblings {
+  float: left;
+  width: 28%;
+}
+
+
+/*
+  =========================================================
+  Notes Panel
+  =========================================================
+*/
+
+
+.notes li {
+  margin-bottom: 1em;
+  .sub-link {
+    display: block;
+    margin-left: 0.5em;
+  }
+}
+
+
+
+
+
+
+
+
 .add-edit-person {
+  border: 5px solid red;
   background: #fff;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #eee;
   padding: 20px;
   overflow: hidden;
   .actions {

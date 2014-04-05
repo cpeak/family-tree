@@ -20,7 +20,5 @@
     <% end %>
   </table>
   </article>
-</section>
-<section class='two columns offset-by-one'>
-  <%= link_to 'New Person', new_person_path %>
+  <%= will_paginate @posts %>
 </section>

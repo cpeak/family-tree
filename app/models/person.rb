@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :first_name, :middle_name, :last_name, :dob, :dod
+  attr_accessible :first_name, :middle_name, :last_name, :dob, :dod, :sex
 
 
   validates :dob, allow_nil: true, format: {

@@ -1,12 +1,32 @@
 .index {
   background: #fff;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #eee;
   padding: 20px;
-  a {
-    color: #309B5C;
-    &:hover {
-      color: black;
-    }
+  width: 100%;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  th, td { padding: 8px; }
+  th {
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  td {
+  }
+}
+
+.pagination {
+  text-align: center;
+  padding-top: 20px;
+  * {
+    padding: 5px 10px;
+  }
+  em:hover,
+  span:hover {
+    cursor: default;
   }
 }

@@ -1,67 +1,51 @@
 <p id="notice"><%= notice %></p>
-<section class='twelve columns breadcrumb'>
-  <%= link_to 'Back', people_path %>
-</section>
 
-<section class='six columns main-bio'>
-  <article class='detail-card'>
-  <h1><%= @person.fullName %> <%= link_to '(Edit)', edit_person_path(@person), :class => 'edit-person' %></h1>
-    <p><%= @person.bornOnWithLocation %></p>
-    <p><% @person.listSpouses.each do |spouse| %>
-        Married to <%= link_to spouse.fullName, spouse %>
-    <% end %></p>
-    <p><%= @person.diedOnAtAge %></p>
-  </article>
-
-  <article class='detail-card'>
-    <h3>Photos</h3>
-    <p class='add-photo'><a href='#'>+ Add a Photo</a></p>
-  </article>
-
-  <article class='detail-card'>
-    <h3>Notes</h3>
-    <ul class='notes'>
-      <% @person.notes.each do |note| %>
-        <li><%= truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
-      <% end %>
-    </ul>
-    <p class='add-note'><a href="<%= new_note_path %>">+ Add a Note</a></p>
-  </article>
-
-</section>
-
-
-<section class='six columns'>
-  <article class='detail-card'>
-  <h3>Parents</h3>
-  <p>
+<div class='wrap'>
+  <div class='main-bio tile'>
+    <p class='parents'>
     <% @person.listParents.each do |parent| %>
       <%= link_to(parent) do %>
         <span><%= parent.fullName %></span>
       <% end %>
     <% end %>
-  </p>
-  <p class='add-relation'><a href="<%= new_person_path %>">+ Add a Parent</a></p>
-  </article>
-  <article class='detail-card'>
-  <h3>Siblings</h3>
-  <p>
-    <% @person.listSiblings.each do |sibling| %>
-      <%= link_to(sibling) do %>
-        <span><%= sibling.fullName %></span>
-      <% end %>
+    </p>
+    <h1><%= @person.fullName %> <%= link_to '(Edit)', edit_person_path(@person), :class => 'edit-person' %></h1>
+    <p><%= @person.bornOnWithLocation %></p>
+    <p><% @person.listSpouses.each do |spouse| %>
+      Married to <%= link_to spouse.fullName, spouse %>
     <% end %></p>
-    <p class='add-relation'><a href="<%= new_person_path %>">+ Add a Sibling</a></p>
-  </article>
-  <article class='detail-card'>
-  <h3>Children</h3>
-  <p>
+    <p><%= @person.diedOnAtAge %></p>
+    <p class='children'>
     <% @person.listChildren.each do |child| %>
       <%= link_to(child) do %>
         <span><%= child.fullName %></span>
       <% end %>
     <% end %></p>
-    <p class='add-relation'><a href="<%= new_person_path %>">+ Add a Child</a></p>
-  </article>
-</section>
+  </div>
 
+  <div class='siblings tile'>
+    <h3>Siblings</h3>
+    <% @person.listSiblings.each do |sibling| %>
+      <%= link_to(sibling) do %>
+        <p><%= sibling.fullName %></p>
+      <% end %>
+    <% end %>
+    <p><a class='subtle' href="<%= new_person_path %>">+ Add a Sibling</a></p>
+  </div>
+</div>
+
+<div class='tile half'>
+  <h3>Photos</h3>
+  <p><a class='subtle' href='#'>+ Add a Photo</a></p>
+</div>
+
+
+<div class='tile half notes'>
+  <h3>Notes</h3>
+  <ul class='notes'>
+    <% @person.notes.each do |note| %>
+      <li><%= truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
+    <% end %>
+  </ul>
+  <p><a class='subtle' href="<%= new_note_path %>">+ Add a Note</a></p>
+</div>
