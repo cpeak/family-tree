@@ -47,7 +47,7 @@
   <h3>Notes</h3>
   <ul class='notes'>
     <% @person.notes.each do |note| %>
-      <li><%= truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
+      <li><%= simple_format truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
     <% end %>
   </ul>
   <p><a class='subtle' href="<%= new_note_path %>">+ Add a Note</a></p>

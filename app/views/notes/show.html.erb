@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<section class='twelve columns person detail-card'>
+<section class='full-note'>
 <h2><%= @note.fullName %></h2>
 
 <p>
-  <%= @note.content %>
+  <%= simple_format @note.content %>
 </p>
 </section>
 

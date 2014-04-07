@@ -1,0 +1,175 @@
+<script>
+  jQuery(document).ready(function() {
+    var element = document.getElementById("content");
+    element.classList.add("wide");
+    $("#org").jOrgChart({
+        chartElement : '#chart',
+        dragAndDrop  : true
+    });
+  });
+</script>
+
+<!-- <ul id="org" style="display:none">
+  <li>
+    Chris Peak
+      <ul>
+        <li id="beer">Beer</li>
+         <li>Vegetables
+           <a href="http://wesnolte.com" target="_blank">Click me</a>
+           <ul>
+             <li>Pumpkin</li>
+             <li>
+                <a href="http://tquila.com" target="_blank">Aubergine</a>
+                <p>A link and paragraph is all we need.</p>
+             </li>
+           </ul>
+         </li>
+         <li class="fruit">Fruit
+           <ul>
+             <li>Apple
+               <ul>
+                 <li>Granny Smith</li>
+               </ul>
+             </li>
+             <li>Berries
+               <ul>
+                 <li>Blueberry</li>
+                 <li><img src="images/raspberry.jpg" alt="Raspberry"/></li>
+                 <li>Cucumber</li>
+               </ul>
+             </li>
+           </ul>
+         </li>
+         <li>Bread</li>
+         <li class="collapsed">Chocolate
+           <ul>
+             <li>Topdeck</li>
+             <li>Reese's Cups</li>
+           </ul>
+         </li>
+       </ul>
+     </li>
+   </ul> -->
+<ul id="org" style="display:none">
+  <li>
+  <h2><a href="/people/1">Chris Peak</a></h2>
+  <h3>b. Aug 07, 1984</h3>
+    <ul>
+      <li>
+        <h2><a href="/people/3">Thomas James Peak</a></h2>
+        <h3>b. Aug 06, 1950</h3>
+        <ul>
+          <li>
+            <h2>Wilbur James Peak</h2>
+            <h3>b. Jan 01, 1908</h3>
+            <h3>d. Nov 10, 1985</h3>
+            <ul>
+              <li>
+                <h2>George W Peak</h2>
+                <h3>b. May 29, 1853</h3>
+                <h3>d. Jun 28, 1931</h3>
+              </li>
+              <li>
+                <h2>Amanda Payne</h2>
+                <h3>b. Nov 20, 1853</h3>
+                <h3>d. Sep 08, 1914</h3>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2>Ruth Visney</h2>
+            <h3>b. Mar 28, 1912</h3>
+            <h3>d. Feb 11, 1995</h3>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2><a href="/people/4">Alison Caroline Fuller</a></h2>
+        <h3>b. Aug 25, 1950</h3>
+        <h3>d. Aug 31, 1990</h3>
+        <ul>
+          <li>
+            <h2>Daniel Brown Fuller</h2>
+            <h3>b. Mar 01, 1925</h3>
+            <h3>b. Nov 28, 2012</h3>
+            <ul>
+              <li>
+                <h2>Howard Elsworth Fuller</h2>
+                <h3>b. Jun 21, 1893</h3>
+                <h3>d. Jun 01, 1961</h3>
+              </li>
+              <li>
+                <h2>Rosalie Brown</h2>
+                <h3>b. Apr 05, 1895</h3>
+                <h3>d. Oct 01, 1968</h3>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2>Katherine Brunke Noyes</h2>
+            <h3>b. Dec 12, 1925</h3>
+            <h3>b. Jun 16, 1999</h3>
+            <ul>
+              <li>
+                <h2>Clarence Tift Noyes</h2>
+                <h3>b. Oct 22, 1876</h3>
+                <h3>d. May 15,  1952</h3>
+                <ul>
+                  <li>
+                    <h2>Edwin B. Noyes</h2>
+                    <h3>b. Jan 27, 1850</h3>
+                    <h3>d. Oct 30, 1922</h3>
+                  </li>
+                  <li>
+                    <h2>Eliza Tift</h2>
+                    <h3>b. Oct 05, 1850</h3>
+                    <h3>d. Apr 15, 1900</h3>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h2>Hermine Brunke</h2>
+                <h3>b. Mar 06, 1890</h3>
+                <h3>d. May 19, 1984</h3>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+<div id="chart" class="orgChart"></div>
+
+    <script>
+      jQuery(document).ready(function() {
+
+        /* Custom jQuery for the example */
+        $("#show-list").click(function(e){
+          e.preventDefault();
+
+          $('#list-html').toggle('fast', function(){
+            if($(this).is(':visible')){
+              $('#show-list').text('Hide underlying list.');
+              $(".topbar").fadeTo('fast',0.9);
+              }else{
+              $('#show-list').text('Show underlying list.');
+              $(".topbar").fadeTo('fast',1);
+            }
+          });
+        });
+
+        $('#list-html').text($('#org').html());
+
+        $("#org").bind("DOMSubtreeModified", function() {
+          $('#list-html').text('');
+
+          $('#list-html').text($('#org').html());
+
+          prettyPrint();
+        });
+      });
+    </script>
