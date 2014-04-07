@@ -31,3 +31,12 @@ describe 'calculate age at death' do
   end
 end
 
+describe 'parent relationship' do
+  it 'determines a parent to given person' do
+    son = Person.new(:id => 1, :first_name => 'Luke')
+    father = Person.new(:id => 2, :first_name => 'Anakin')
+    relation = Relationship.new(:relationship_type_id => 1, :person_id => 2, :related_person_id => 1)
+
+    son.listParents.should == ['Anakin']
+  end
+end

@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 
 gem 'json'
 gem 'paperclip'
+gem 'seed_dump'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
