@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     if params[:query].present?
-      @people = Person.search(params[:query], load: true )
+      @people = Person.search(params[:query], :page => params[:page], :per_page => 20, load: true )
     else
       @people = Person.paginate(:page => params[:page], :per_page => 20).all(:order => 'last_name')
     end
