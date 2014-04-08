@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :person_id %><br />
-    <%= f.text_field :person_id %>
-  </div>
+  <%= f.hidden_field :person_id, :value => params[:id] %>
   <div class='field'>
   </div>
   <div class="field">

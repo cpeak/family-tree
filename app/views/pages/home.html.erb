@@ -1,12 +1,17 @@
 <% ages = [] %>
+<% yearBorn = [] %>
 <% uniqueNames = [] %>
 
 <% @person.each do |person| %>
   <% if person.ageDied.to_f > 0 %>
     <% ages << person.ageDied.to_f %>
   <% end %>
+  <% yearBorn << person.dob.to_s %>
+
   <% uniqueNames << person.last_name %>
 <% end %>
+
+<% oldest = yearBorn.min %>
 
 <% average = (ages.sum / ages.count).floor %>
 
@@ -26,13 +31,12 @@
 </form>
 </div>
 
-<h4 class='float-header'>Statistics</h4>
 <ul class='stats'>
   <li><%= Person.count %><span>People</span></li>
   <li><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>
   <li><%= Person.count(:conditions => 'sex = "F"') %><span>Females</span></li>
-  <li><%= average %><span>Average Age</span></li>
   <li><%= uniqueNames.uniq.count %><span>Last Names</span></li>
+  <li><%= average %><span>Average Age</span></li>
+  <li><%= ages.min.floor %><span>Youngest</span></li>
+  <li><%= ages.max.floor %><span>Oldest</span></li>
 </ul>
-
-

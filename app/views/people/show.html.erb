@@ -50,5 +50,5 @@
       <li><%= simple_format truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
     <% end %>
   </ul>
-  <p><a class='subtle' href="<%= new_note_path %>">+ Add a Note</a></p>
+  <p><%= link_to "+ Add a Note", new_note_path(:id => @person.id), class: "subtle" %></p>
 </div>
