@@ -110,5 +110,14 @@ class Person < ActiveRecord::Base
     end
     return children
   end
+
+  def averageAge
+    ages = []
+    self.find_each do |person|
+      if ageDied.present?
+        ageDied >> ages
+      end
+    end
+  end
 end
 

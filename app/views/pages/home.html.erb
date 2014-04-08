@@ -1,3 +1,17 @@
+<% ages = [] %>
+<% uniqueNames = [] %>
+
+<% @person.each do |person| %>
+  <% if person.ageDied.to_f > 0 %>
+    <% ages << person.ageDied.to_f %>
+  <% end %>
+  <% uniqueNames << person.last_name %>
+<% end %>
+
+<% average = (ages.sum / ages.count).floor %>
+
+
+
 <ul class='home-half-links'>
   <li><a href="/tree"><img src="<%= image_path('tree-white.svg'); %>" /><span>Lineage Chart</span></a></li>
   <li><a href="/people"><img src="<%= image_path('list.svg'); %>" /><span>Index</span></a></li>
@@ -17,5 +31,8 @@
   <li><%= Person.count %><span>People</span></li>
   <li><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>
   <li><%= Person.count(:conditions => 'sex = "F"') %><span>Females</span></li>
+  <li><%= average %><span>Average Age</span></li>
+  <li><%= uniqueNames.uniq.count %><span>Last Names</span></li>
 </ul>
+
 
