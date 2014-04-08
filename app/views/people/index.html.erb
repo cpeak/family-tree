@@ -1,4 +1,9 @@
 <section class='index'>
+<%= form_tag people_path, method: :get do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+  <a href="/people/">clear</a>
+<% end %>
   <article>
   <table>
     <tr>

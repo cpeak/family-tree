@@ -43,6 +43,29 @@ table {
 
 
 
+.index form {
+  margin: 0 auto 2em auto;
+  padding: 3px 0;
+  width: 80%;
+  input[type='text'] {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    float: left;
+    font-size: 1em;
+    padding: 10px;
+    width: 75%;
+  }
+  input[type='submit'] {
+    display: inline-block;
+    margin-left: 1em;
+    width: 15%;
+  }
+  a {
+    color: #555;
+  }
+}
+
+
 /*
   ==============================================================
   New Home Page - Dashboard
@@ -55,10 +78,9 @@ table {
   li {
     float: left;
     text-align: center;
-    margin-right: 1.2%;
     width: 32%;
-    &:last-child {
-      margin-right: none;
+    &:nth-child(even){
+      margin: 0 2%;
     }
     a {
       background: rgba(0,0,0,0.25);
@@ -109,6 +131,7 @@ table {
   input[type='search'] {
     border: none;
     border-radius: 2px;
+    float: left;
     font-size: 1.5em;
     padding: 15px;
     width: 80%;

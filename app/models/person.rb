@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :first_name, :middle_name, :last_name, :dob, :dod, :sex, :photo
+  attr_accessible :first_name, :middle_name, :last_name, :dob, :dod, :sex, :photo, :birthplace, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
 
 
   validates :dob, allow_nil: true, format: {
@@ -9,9 +9,12 @@ class Person < ActiveRecord::Base
   has_many :notes
   has_many :relationships, :dependent => :destroy
   has_many :reverse_relationships, :dependent => :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
+  has_attached_file :photo
+
   accepts_nested_attributes_for :relationships
 
-  has_attached_file :photo
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
 
   def all_relationships
     relationships | reverse_relationships

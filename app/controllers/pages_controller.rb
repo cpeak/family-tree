@@ -1,9 +1,5 @@
 class PagesController < ApplicationController
 
-  def home
-  end
-
-
   def stats
     @person = Person.all
 
