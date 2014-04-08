@@ -1,0 +1,19 @@
+<ul class='home-half-links'>
+  <li><a href="/pages/tree"><img src="<%= image_path('tree-white.svg'); %>" /><span>Lineage Chart</span></a></li>
+  <li><a href="/people"><img src="<%= image_path('list.svg'); %>" /><span>Index</span></a></li>
+  <li><a href="/people/new"><img src="<%= image_path('new-person.svg'); %>" /><span>Add Person</span></a></li>
+</ul>
+
+
+<div class='search'>
+  <input type='search'></input>
+  <input type='submit' value='Search'></input>
+</div>
+
+<h4 class='float-header'>Statistics</h4>
+<ul class='stats'>
+  <li><%= Person.count %><span>People</span></li>
+  <li><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>
+  <li><%= Person.count(:conditions => 'sex = "F"') %><span>Females</span></li>
+</ul>
+

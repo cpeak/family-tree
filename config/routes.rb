@@ -1,17 +1,17 @@
 Family::Application.routes.draw do
+
+
+  root :to => 'pages#home'
+
   resources :notes
-
-
   resources :marriages
 
 
   resources :people
 
-
-  get "home/index"
-  get "pages/stats"
-  get "pages/about"
   get "pages/tree"
+  get "pages/index"
+  get "pages/about"
   get "pages/todo"
 
   # The priority is based upon order of creation:
@@ -63,7 +63,7 @@ Family::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'people#index'
+  #root :to => 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 

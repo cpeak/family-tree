@@ -1,3 +1,9 @@
+/*
+  ==============================================================
+  People#index - old root page
+  ==============================================================
+*/
+
 .index {
   background: #fff;
   border-radius: 2px;
@@ -32,5 +38,85 @@ table {
   em:hover,
   span:hover {
     cursor: default;
+  }
+}
+
+
+
+/*
+  ==============================================================
+  New Home Page - Dashboard
+  ==============================================================
+*/
+
+.home-half-links {
+  overflow: hidden;
+  margin-bottom: 2em;
+  li {
+    float: left;
+    text-align: center;
+    margin-right: 1.2%;
+    width: 32%;
+    &:last-child {
+      margin-right: none;
+    }
+    a {
+      background: rgba(0,0,0,0.25);
+      border-radius: 2px;
+      color: white;
+      display: block;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 40px 20px;
+      img {
+        width: 40%;
+        margin: 0 auto;
+      }
+      span {
+        display: block;
+        margin: 20px;
+      }
+      &:hover {
+        background: rgba(0,0,0,0.5);
+        color: white;
+      }
+    }
+  }
+}
+
+.stats {
+  color: white;
+  li {
+    background: rgba(0,0,0,0.25);
+    border-radius: 2px;
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 40px 30px;
+    margin: 0 20px 20px 0;
+    text-align: center;
+    span {
+      display: block;
+      margin: .5em 0 0 0;
+    }
+  }
+}
+
+
+.search {
+  background: rgba(0,0,0,0.25);
+  padding: 60px 40px;
+  margin-bottom: 2em;
+  input[type='search'] {
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5em;
+    padding: 15px;
+    width: 80%;
+  }
+  input[type='submit'] {
+    display: inline-block;
+    margin-left: 1em;
+    padding: 20px !important;
+    width: 15%;
   }
 }
