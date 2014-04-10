@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <section class='full-note'>
-<h2><%= @note.fullName %></h2>
-
-<p>
+<h2><%= @note.fullName %> <br /><span>Created <%= @note.created_at.to_s(:pretty) %></span></h2>
   <%= simple_format @note.content %>
 </p>
 </section>

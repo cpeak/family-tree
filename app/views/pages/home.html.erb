@@ -25,10 +25,10 @@
 
 
 <div class='search'>
-  <form>
-  <input type='search'></input>
-  <input type='submit' value='Search'></input>
-</form>
+<%= form_tag people_path, method: :get do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
 </div>
 
 <ul class='stats'>
