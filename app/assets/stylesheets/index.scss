@@ -1,3 +1,5 @@
+@import 'mixins';
+
 /*
   ==============================================================
   People#index - old root page
@@ -84,7 +86,7 @@ table {
       margin: 0 2%;
     }
     a {
-      background: rgba(0,0,0,0.25);
+      background: $dark-glass;
       border-radius: 2px;
       color: white;
       display: block;
@@ -100,7 +102,7 @@ table {
         margin: 20px;
       }
       &:hover {
-        background: rgba(0,0,0,0.5);
+        background: $dark-glass-hover;
         color: white;
       }
     }
@@ -110,7 +112,7 @@ table {
 .stats {
   color: white;
   li {
-    background: rgba(0,0,0,0.25);
+    background: $dark-glass;
     border-radius: 2px;
     font-size: 1.25em;
     font-weight: bold;
@@ -127,7 +129,7 @@ table {
 
 
 .search {
-  background: rgba(0,0,0,0.25);
+  background: $dark-glass;
   padding: 60px 40px;
   margin-bottom: 2em;
   #query {

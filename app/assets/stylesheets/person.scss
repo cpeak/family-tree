@@ -3,6 +3,7 @@
 
 .wrap {
   display: inline-block;
+  position: relative;
   overflow: visible;
   margin-bottom: 1.25em;
   width: 100%;
@@ -77,6 +78,7 @@ a.subtle {
 */
 .siblings {
   float: left;
+  min-height: 200px;
   width: 28%;
 }
 
@@ -103,10 +105,14 @@ a.subtle {
 */
 
 .notes li {
+  border-bottom: 1px solid $hairline;
   margin-bottom: 1em;
+  padding-bottom: 1em;
   .sub-link {
     display: block;
-    margin-left: 0.5em;
+  }
+  &:last-child {
+    border: none;
   }
 }
 

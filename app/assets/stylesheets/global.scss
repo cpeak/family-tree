@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  margin-top: 120px;
+  margin-top: 120px; /* Offset fixed header */
 }
 
 * {
@@ -22,8 +22,6 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-
 
 
 h1, h2, h3, h4, h5 {
@@ -47,6 +45,12 @@ a.warning {
   }
 }
 
+/*
+  ===============
+  =IN Input types
+  ===============
+*/
+
 input[type='submit'] {
   background: #3280B4;
   border: none;
@@ -68,6 +72,7 @@ ul {
 }
 
 
+/* Content wrapper for pages */
 .content {
   margin: 0 auto 3em auto;
   overflow: hidden;
@@ -76,6 +81,7 @@ ul {
   width: 95%;
 }
 
+/* Override for content to break wider than 1140px */
 .wide {
   width: 100% !important;
   max-width: 100%;
@@ -89,7 +95,7 @@ ul {
 */
 
 header {
-  background: rgba(0,0,0,0.75);
+  background: $black-glass;
   left: 0;
   margin-bottom: 2em;
   position: fixed;
