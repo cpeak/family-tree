@@ -6,4 +6,8 @@ class PagesController < ApplicationController
       format.html
     end
   end
+
+  def login
+    render :layout => "login"
+  end
 end

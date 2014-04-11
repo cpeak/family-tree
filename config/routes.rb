@@ -10,10 +10,8 @@ Family::Application.routes.draw do
 
   get '/tree' => 'pages#tree'
   get '/todo' => 'pages#todo'
+  get '/about' => 'pages#about'
+  get '/login' => 'pages#login'
 
-
-  get "pages/index"
-  get "pages/about"
-  get "pages/todo"
 
 end
