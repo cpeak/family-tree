@@ -1,5 +1,18 @@
 @import 'mixins';
 
+
+/*
+  =GL Global Styles
+  =IN Inputs and labels
+  =LA Layout
+  =HN Header and Navigation
+*/
+
+/*
+  =================================================================================
+  =GL Global Styles
+  =================================================================================
+*/
 html {
   background-color: #f2e9d5;
   background-image: url('bg-3.jpg');
@@ -45,11 +58,43 @@ a.warning {
   }
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.breadcrumb {
+  padding: 0 0 10px 10px;
+}
+
+
+
+.todo {
+  h1, h2, h3, h4 {
+    margin: 0.5em 0;
+  }
+  ul {
+    list-style: disc;
+    li {
+      margin-left: 1.5em;
+    }
+  }
+}
+
 /*
-  ===============
+  =================================================================================
   =IN Input types
-  ===============
+  =================================================================================
 */
+
+label {
+  display: inline-block;
+  margin-top: 10px;
+}
+input[type='text'] {
+  display: block;
+  padding: 5px;
+}
 
 input[type='submit'] {
   background: #3280B4;
@@ -66,10 +111,11 @@ input[type='submit'] {
   }
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
+/*
+  =================================================================================
+  =LA Layout
+  =================================================================================
+*/
 
 
 /* Content wrapper for pages */
@@ -90,7 +136,7 @@ ul {
 
 /*
   =================================================================================
-  Header
+  =HN Header & Navigation
   =================================================================================
 */
 
@@ -134,9 +180,6 @@ header {
     width: 95%;
   }
 }
-
-
-
 
 
 

@@ -12,6 +12,7 @@ Family::Application.routes.draw do
   get '/todo' => 'pages#todo'
   get '/about' => 'pages#about'
   get '/login' => 'pages#login'
+  get '/photos' => 'pages#photos'
 
 
 end

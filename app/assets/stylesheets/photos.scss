@@ -1,0 +1,18 @@
+@import 'mixins';
+
+.photo-gallery li {
+  float: left;
+  margin-right: 2%;
+  margin-bottom: 3em;
+  height: 300px;
+  text-align: center;
+  width: 23%;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  span {
+    display: block;
+    width: 100%;
+  }
+}

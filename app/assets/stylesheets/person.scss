@@ -1,3 +1,13 @@
+/*
+  =MB Main Bio Panel
+  =SI Sibling Information
+  =PG Photo Gallery
+  =NP Notes Panel
+  =PF New/Edit Person Form
+
+*/
+
+
 @import 'mixins';
 
 
@@ -36,9 +46,11 @@ a.subtle {
   &:hover { color: #000; border-color: #555; }
 }
 
+
+
 /*
   =========================================================
-  Main Bio Panel
+  =MB Main Bio Panel
   =========================================================
 */
 
@@ -71,9 +83,11 @@ a.subtle {
   }
 }
 
+
+
 /*
   =========================================================
-  Sibling Sidebar
+  =SI Sibling Sidebar
   =========================================================
 */
 .siblings {
@@ -82,9 +96,11 @@ a.subtle {
   width: 28%;
 }
 
+
+
 /*
   =========================================================
-  Photos Panel
+  =PG Photos Gallery
   =========================================================
 */
 .photos {
@@ -98,11 +114,19 @@ a.subtle {
   }
 }
 
+
+
 /*
   =========================================================
-  Notes Panel
+  =NP Notes Panel
   =========================================================
 */
+
+
+.notes {
+  background: white;
+  overflow: hidden;
+}
 
 .notes li {
   border-bottom: 1px solid $hairline;
@@ -118,12 +142,9 @@ a.subtle {
 
 
 
-
-
-
 /*
   =========================================================
-  Person#form
+  =PF  Person#form
   =========================================================
 */
 
@@ -132,6 +153,12 @@ a.subtle {
   background: #fff;
   padding: 20px;
   overflow: hidden;
+  input[type='text'] {
+    border: 1px solid $hairline;
+    font-size: 1.2em;
+    padding: 10px;
+    width: 90%;
+  }
   .field {
     float: left;
     overflow: hidden;
