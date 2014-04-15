@@ -11,6 +11,9 @@ class Person < ActiveRecord::Base
   has_many :reverse_relationships, :dependent => :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
   has_attached_file :photo
 
+  has_many :person_images, :dependent => :destroy
+  accepts_nested_attributes_for :person_images, :reject_if => lambda { |t| t['trip_image'].nil? }
+
   accepts_nested_attributes_for :relationships
 
   include Tire::Model::Search
