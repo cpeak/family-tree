@@ -1,7 +1,7 @@
 @import 'mixins';
 
 html.fullscreen {
-  background: #222;
+  background: $green-light;
 }
 
 body.fullscreen {
@@ -10,7 +10,7 @@ body.fullscreen {
 
 
 #login {
-  margin: 10% auto;
+  margin: 20% auto 0 auto;
   width: 30%;
   img {
     margin: 0 auto;
@@ -19,84 +19,104 @@ body.fullscreen {
 }
 
 .login-button {
-  background: $green;
+  border: 1px solid white;
   border-radius: 2px;
-  border-bottom: 2px solid darken($green, 15%);
   color: white !important;
+  display: inline-block;
+  font-weight: bold;
+  margin: 40px auto;
+  position: relative;
+  padding: 15px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  &:before {
+    content: 'x';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    line-height: 2.5;
+    font-size: 180%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  &:hover {
+    background: white;
+    color: $green-light !important;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* General button style (reset) */
+.btn {
+  background: none;
+  border-radius: 2px;
+  border: 1px solid white;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 15px 40px;
   display: block;
   margin: 40px auto;
-  padding: 20px 40px;
-  text-align: center;
-  width: 40%;
-  &:hover {
-    background: darken($green, 2%);
+  text-transform: uppercase;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  span {
+    display: inline-block;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+  }
+  &:active {
+    top: 2px;
+  }
+  &:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  &:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(00%);
+  }
+  &:hover:before {
+    top: 15px;
   }
 }
 
 
-
-
-.fallingLeaves {
-  text-align: center;
-}
-
-.fallingLeaves span {
-  background:url("leaf.svg");
-  background-size: 60%;
-  background-repeat: no-repeat;
-  display: inline-block;
-  height: 80px;
-  margin-top: -280px;
-  margin-right: 340px;
-  margin-bottom: 54px;
-  margin-left: -4px;
-  width: 80px;
-  -webkit-animation: fallingLeaves 10s infinite  linear;
-  -moz-animation: fallingLeaves 10s infinite  linear;
-}
-
-#leaf1 {
-}
-
-#leaf2 {
-  -webkit-animation-delay: 3.5s;
-  -moz-animation-delay: 8.5s;
-  margin-left: 100px;
-}
-
-#leaf3 {
-  -webkit-animation-delay: 18.5s;
-  -moz-animation-delay: 18.5s;
+.icon-cart:before {
+  content: 'icon';
 }
 
 
-@-webkit-keyframes fallingLeaves {
-  0% {
-    opacity: 1;
-    -webkit-transform: translate(0, 0px) rotateZ(0deg);
-  }
-  75% {
-    opacity: 1;
-    -webkit-transform: translate(100px, 600px) rotateZ(270deg);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translate(150px, 800px) rotateZ(360deg);
-  }
-}
-
-@-moz-keyframes fallingLeaves {
-  0% {
-    opacity: 1;
-    -webkit-transform: translate(0, 0px) rotateZ(0deg);
-  }
-  75% {
-    opacity: 1;
-    -webkit-transform: translate(100px, 600px) rotateZ(270deg);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translate(150px, 800px) rotateZ(360deg);
-  }
-}
 
