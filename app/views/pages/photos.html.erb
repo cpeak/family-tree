@@ -1,7 +1,9 @@
-<ul class='photo-gallery'>
-<% @person.each do |person| %>
-  <% if person.photo_file_name.present? %>
-    <li><%= image_tag person.photo.url %><span><%= link_to person.fullName, person %></span></li>
-  <% end %>
-<% end %>
-</ul>
+<div class='content'>
+  <ul class='photo-gallery'>
+    <% @person.each do |person| %>
+      <% if person.photo_file_name.present? %>
+        <li><%= image_tag person.photo.url %><span><%= link_to person.fullName, person %></span></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

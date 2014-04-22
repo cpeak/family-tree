@@ -5,9 +5,14 @@
   ==============================================================
 */
 
-.home-half-links {
+$tile: #f2f2f2;
+
+.big-links {
+  background: $green-light;
+}
+
+.home-big-links {
   overflow: hidden;
-  margin-bottom: 2em;
   li {
     float: left;
     text-align: center;
@@ -16,12 +21,10 @@
       margin: 0 2%;
     }
     a {
-      background: $dark-glass;
       border-radius: 2px;
-      color: white;
+      color: $white;
       display: block;
-      font-size: 2em;
-      font-weight: bold;
+      font-size: 1.75em;
       padding: 40px 20px;
       img {
         width: 40%;
@@ -32,48 +35,52 @@
         margin: 20px;
       }
       &:hover {
-        background: $dark-glass-hover;
-        color: white;
+        background: darken($green-light, 5%);
+        color: $white;
       }
     }
   }
 }
 
-.stats {
-  color: white;
+.module.stats {
   li {
-    background: $dark-glass;
-    border-radius: 2px;
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: bold;
     display: inline-block;
     padding: 20px;
     margin: 0 20px 20px 0;
     text-align: center;
+    [class*="icon-"] {
+      color: $red;
+      font-size: 1.75em;
+      margin-bottom: .5em;
+      text-align: center;
+    }
     span {
       display: block;
-      margin: .5em 0 0 0;
+      margin: .25em 0 0 0;
+    }
+    span:last-child {
+      font-size: .75em;
     }
   }
 }
 
 
 .search {
-  background: $dark-glass;
-  padding: 60px 40px;
-  margin-bottom: 2em;
   #query {
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 2px;
+    display: inline-block;
     float: left;
     font-size: 1.5em;
-    margin-left: 1em;
+    margin: 1em 0;
     padding: 15px;
     width: 78%;
   }
   input[type='submit'] {
-    display: inline-block;
-    margin-left: 1em;
+    float: left;
+    margin: 1.75em 0 0 1em;
     padding: 20px !important;
     width: 15%;
   }

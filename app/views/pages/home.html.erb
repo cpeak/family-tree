@@ -16,27 +16,37 @@
 <% average = (ages.sum / ages.count).floor %>
 
 
-
-<ul class='home-half-links'>
-  <li><a href="/tree"><img src="<%= image_path('tree-white.svg'); %>" /><span>Lineage Chart</span></a></li>
-  <li><a href="/people"><img src="<%= image_path('list.svg'); %>" /><span>Index</span></a></li>
-  <li><a href="/people/new"><img src="<%= image_path('new-person.svg'); %>" /><span>Add Person</span></a></li>
-</ul>
-
-
-<div class='search'>
-<%= form_tag people_path, method: :get do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
+<div class='module big-links'>
+  <div class='content'>
+    <ul class='home-big-links'>
+      <li><a href="/tree"><img src="<%= image_path('tree-white.svg'); %>" /><span>Lineage Chart</span></a></li>
+      <li><a href="/people"><img src="<%= image_path('list.svg'); %>" /><span>Index</span></a></li>
+      <li><a href="/people/new"><img src="<%= image_path('new-person.svg'); %>" /><span>Add Person</span></a></li>
+    </ul>
+  </div>
 </div>
 
-<ul class='stats'>
-  <li><%= Person.count %><span>People</span></li>
-  <li><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>
-  <li><%= Person.count(:conditions => 'sex = "F"') %><span>Females</span></li>
-  <li><%= uniqueNames.uniq.count %><span>Last Names</span></li>
-  <li><%= average %><span>Average Age</span></li>
-  <li><%= ages.min.floor %><span>Youngest</span></li>
-  <li><%= ages.max.floor %><span>Oldest</span></li>
-</ul>
+<div class='module search'>
+  <div class='content'>
+    <h1>Search</h1>
+    <%= form_tag people_path, method: :get do %>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", name: nil %>
+    <% end %>
+  </div>
+</div>
+
+<div class='module inverted stats'>
+  <div class='content'>
+    <h1>Statistics</h1>
+    <ul>
+      <li><span class='icon-users2'></span><%= Person.count %><span>People</span></li>
+      <li><span class='icon-male'></span><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>
+      <li><span class='icon-female'></span><%= Person.count(:conditions => 'sex = "F"') %><span>Females</span></li>
+      <li><%= uniqueNames.uniq.count %><span>Last Names</span></li>
+      <li><span class='icon-graph'></span><%= average %><span>Average Age</span></li>
+      <li><span class='icon-bars'></span><%= ages.min.floor %><span>Youngest</span></li>
+      <li><span class='icon-bars'></span><%= ages.max.floor %><span>Oldest</span></li>
+    </ul>
+  </div>
+</div>
