@@ -8,7 +8,14 @@
 $tile: #f2f2f2;
 
 .big-links {
-  background: $green-light;
+  background: #44a069; /* Old browsers */
+  background: -moz-linear-gradient(top, #44a069 0%, #47ad70 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#44a069), color-stop(100%,#47ad70)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #44a069 0%,#47ad70 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #44a069 0%,#47ad70 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #44a069 0%,#47ad70 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #44a069 0%,#47ad70 100%); /* W3C */
+  border-bottom: 1px solid $green-light;
 }
 
 .home-big-links {
@@ -21,13 +28,13 @@ $tile: #f2f2f2;
       margin: 0 2%;
     }
     a {
-      border-radius: 2px;
+      border-radius: 4px;
       color: $white;
       display: block;
       font-size: 1.75em;
-      padding: 40px 20px;
+      padding: 40px 10px;
       img {
-        width: 40%;
+        width: 50%;
         margin: 0 auto;
       }
       span {
@@ -35,8 +42,9 @@ $tile: #f2f2f2;
         margin: 20px;
       }
       &:hover {
-        background: darken($green-light, 5%);
+        background: darken($green-light, 2%);
         color: $white;
+        -webkit-transform: scale(1.03);
       }
     }
   }

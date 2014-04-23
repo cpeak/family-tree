@@ -2,6 +2,12 @@ $line-color: rgba(0,0,0,0.5);
 $line: 1px solid $line-color;
 
 
+#chart {
+  display: inline-block;
+  margin-top: 2em;
+  padding: 0 2em;
+  width: 100%;
+}
 /* Draw the lines */
 .jOrgChart .line {
   height: 25px;

@@ -29,6 +29,7 @@
 <div class='module search'>
   <div class='content'>
     <h1>Search</h1>
+    <p>Find people in your family tree by name, date of birth or death, location, or even search notes.</p>
     <%= form_tag people_path, method: :get do %>
       <%= text_field_tag :query, params[:query] %>
       <%= submit_tag "Search", name: nil %>
@@ -39,6 +40,7 @@
 <div class='module inverted stats'>
   <div class='content'>
     <h1>Statistics</h1>
+    <p>Here are some interesting things we've found out about your family:</p>
     <ul>
       <li><span class='icon-users2'></span><%= Person.count %><span>People</span></li>
       <li><span class='icon-male'></span><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>

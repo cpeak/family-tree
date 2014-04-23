@@ -1,5 +1,9 @@
 @import 'mixins';
 
+.photo-gallery {
+  overflow: hidden;
+  margin-top: 2em;
+}
 .photo-gallery li {
   float: left;
   margin-right: 2%;

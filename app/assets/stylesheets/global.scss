@@ -15,7 +15,6 @@
 */
 html {
   background-color: #fff;
-  //background-image: url('bg-3.jpg');
   background-size: cover;
   color: #333;
   font-family: "ff-meta-web-pro", 'Proxima Nova', 'Helvetica', serif;
@@ -27,7 +26,7 @@ html {
 }
 
 body {
-  margin: 90px 0 0 0; /* Offset fixed header */
+  margin: 76px 0 0 0; /* Offset fixed header */
 }
 
 * {
@@ -42,6 +41,10 @@ h1, h2, h3, h4, h5 {
   padding: 0;
 }
 
+p {
+  color: #777;
+  letter-spacing: -0.5px;
+}
 a, a:visited {
   text-decoration: none;
   color: $green;
@@ -67,6 +70,21 @@ ul {
   padding: 0 0 10px 10px;
 }
 
+.pace .pace-progress {
+  background: darken($green-light, 5%);
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 3px;
+
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive { display: none; }
 
 
 .todo {
@@ -143,12 +161,18 @@ input[type='submit'] {
     letter-spacing: -1px;
     line-height: 1.5em;
   }
+  p {
+    font-family: 'Proxima Nova', "proxima-nova", 'Helvetica', serif;
+    font-size: 1.5em;
+    font-weight: 300;
+  }
   &.off-white {
     background: #f7f9fa;
   }
   &.inverted {
     background: $charcoal;
     color: white;
+    p { color: #ddd; }
   }
 }
 
@@ -166,7 +190,7 @@ header {
   top: 0;
   z-index: 999;
   h1 {
-    font-size: 2em;
+    font-size: 1.25em;
     display: inline-block;
     padding: 25px 0;
     width: 5em;
@@ -174,12 +198,12 @@ header {
       width: 100%;
     }
     a {
-      padding: 25px 0;
+      padding: 15px 0;
     }
   }
   nav {
     float: right;
-    padding-top: 35px;
+    padding-top: 28px;
     a {
       border-radius: 4px;
       color: white !important;
