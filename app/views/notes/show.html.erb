@@ -4,6 +4,7 @@
 <h2><%= @note.fullName %> <br /><span>Created <%= @note.created_at.to_s(:pretty) %></span></h2>
   <%= simple_format @note.content %>
 </p>
+<p><%= link_to 'Edit', edit_note_path(@note) %> | <a href="/people/<%= @note.person_id %>">Back</a></p>
+<p><a href="<%= edit_note_path(@note) %>"><span class='icon-pencil'></span></a></p>
 </section>
 
-<p><%= link_to 'Edit', edit_note_path(@note) %> | <a href="/people/<%= @note.person_id %>">Back</a></p>
