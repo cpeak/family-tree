@@ -42,13 +42,13 @@
     <h1>Statistics</h1>
     <p>Here are some interesting things we've found out about your family:</p>
     <ul>
-      <li><span class='icon-users2'></span><%= Person.count %><span>People</span></li>
+      <li><span class='icon-users'></span><%= Person.count %><span>People</span></li>
       <li><span class='icon-male'></span><%= Person.count(:conditions => 'sex = "M"') %><span>Males</span></li>
       <li><span class='icon-female'></span><%= Person.count(:conditions => 'sex = "F"') %><span>Females</span></li>
-      <li><%= uniqueNames.uniq.count %><span>Last Names</span></li>
-      <li><span class='icon-graph'></span><%= average %><span>Average Age</span></li>
-      <li><span class='icon-bars'></span><%= ages.min.floor %><span>Youngest</span></li>
-      <li><span class='icon-bars'></span><%= ages.max.floor %><span>Oldest</span></li>
+      <li><span class='icon-user'></span><%= uniqueNames.uniq.count %><span>Last Names</span></li>
+      <li><span class='icon-chart-pie'></span><%= average %><span>Average Age</span></li>
+      <li><span class='icon-chart-line'></span><%= ages.min.floor %><span>Youngest</span></li>
+      <li><span class='icon-chart-pie-1'></span><%= ages.max.floor %><span>Oldest</span></li>
     </ul>
   </div>
 </div>

@@ -25,7 +25,7 @@
   </div>
 
   <div class='siblings tile'>
-    <h3>Siblings</h3>
+    <h3><span class='icon-users'></span> Siblings</h3>
     <% @person.listSiblings.each do |sibling| %>
       <%= link_to(sibling) do %>
         <p><%= sibling.fullName %></p>
@@ -36,7 +36,7 @@
 </div>
 
 <div class='tile half photos'>
-  <h3>Photos</h3>
+  <h3><span class='icon-picture'></span> Photos</h3>
   <% if @person.photo.present? %>
     <%= image_tag @person.photo.url %>
   <% end %>
@@ -45,7 +45,7 @@
 
 
 <div class='tile half notes'>
-  <h3>Notes</h3>
+  <h3><span class='icon-tags'></span> Notes</h3>
   <ul class='notes'>
     <% @person.notes.each do |note| %>
       <li><%= simple_format truncate(note.content, :length => 300) %> <%= link_to "(read more)", note, :class => 'sub-link' %></li>
