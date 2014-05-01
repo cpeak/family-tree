@@ -1,10 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <section class='full-note'>
-<h2><%= @note.fullName %> <br /><span>Created <%= @note.created_at.to_s(:pretty) %></span></h2>
+  <p id="notice"><%= notice %></p>
+  <h2><%= @note.fullName %> <br /><span>Created <%= @note.created_at.to_s(:pretty) %></span></h2>
   <%= simple_format @note.content %>
-</p>
-<p><%= link_to 'Edit', edit_note_path(@note) %> | <a href="/people/<%= @note.person_id %>">Back</a></p>
-<p><a href="<%= edit_note_path(@note) %>"><span class='icon-pencil'></span></a></p>
+  <p><a href="<%= edit_note_path(@note) %>"><span class='icon-pencil'></span> Edit</a> | <a href="/people/<%= @note.person_id %>">Back</a></p>
 </section>
 
