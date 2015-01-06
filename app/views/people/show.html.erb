@@ -11,11 +11,15 @@
     <% end %>
     </p>
     <h1><%= @person.fullName %> <%= link_to '(Edit)', edit_person_path(@person), :class => 'edit-person' %></h1>
-    <p><%= @person.bornOnWithLocation %></p>
+    <% if @person.dob.present? %>
+      <p><%= @person.bornOnWithLocation %></p>
+    <% end %>
     <p><% @person.listSpouses.each do |spouse| %>
       Married to <%= link_to spouse.fullName, spouse %>
     <% end %></p>
-    <p><%= @person.diedOnAtAge %></p>
+    <% if @person.dod.present? %>
+      <p><%= @person.diedOnAtAge %></p>
+    <% end %>
     <p class='children'>
     <% @person.listChildren.each do |child| %>
       <%= link_to(child) do %>
