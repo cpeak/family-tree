@@ -10,8 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <p>Person ID: <%= @note.person_id %></p>
   <%= f.hidden_field :person_id, :value => @note.person_id %>
   <div class="field">
     <%= f.label :content %><br />
